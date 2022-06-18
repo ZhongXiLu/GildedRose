@@ -10,8 +10,7 @@ class GildedRoseTest {
     @Test
     @DisplayName("At the end of each day our system lowers both values for every item")
     void testUpdateQuality() {
-        int initialQuality = 100;
-        Item item = new Item("Headhunter", 100, initialQuality);
+        Item item = new Item("Headhunter", 100, 30);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
         int currentQuality = item.quality;
@@ -29,7 +28,7 @@ class GildedRoseTest {
     @Test
     @DisplayName("Once the sell by date has passed, Quality degrades twice as fast")
     void testQuality_sellDateHasPassed() {
-        Item item = new Item("Headhunter", 0, 100);
+        Item item = new Item("Headhunter", 0, 30);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
         int currentQuality = item.quality;
