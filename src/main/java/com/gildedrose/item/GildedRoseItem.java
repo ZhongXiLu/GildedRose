@@ -4,6 +4,8 @@ import com.gildedrose.Item;
 
 public class GildedRoseItem {
 
+    protected static final int QUALITY_DEGRADE_RATE = 1;
+
     protected final Item item;
 
     public GildedRoseItem(Item item) {
@@ -29,9 +31,9 @@ public class GildedRoseItem {
 
     protected void updateQuality() {
         if (item.sellIn == 0) {
-            setQuality(item.quality - 2);
+            setQuality(item.quality - QUALITY_DEGRADE_RATE * 2);
         } else {
-            setQuality(item.quality - 1);
+            setQuality(item.quality - QUALITY_DEGRADE_RATE);
         }
     }
 
