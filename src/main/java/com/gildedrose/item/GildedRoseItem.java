@@ -5,11 +5,19 @@ import com.gildedrose.Item;
 public class GildedRoseItem {
 
     protected final Item item;
-    protected final int qualityDegradeRate = 1;
+    protected int qualityDegradeRate = 1;
 
     public GildedRoseItem(Item item) {
-        this.item = item;
+        this(item, false);
     }
+
+    public GildedRoseItem(Item item, boolean conjured) {
+        this.item = item;
+        if (conjured) {
+            qualityDegradeRate *= 2;
+        }
+    }
+
 
     public void age() {
         updateQuality();

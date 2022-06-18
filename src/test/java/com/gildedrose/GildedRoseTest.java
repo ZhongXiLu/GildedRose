@@ -131,4 +131,18 @@ class GildedRoseTest {
         assertThat(item.quality).isZero();
     }
 
+    @Test
+    @DisplayName("'Conjured' items degrade in Quality twice as fast as normal items")
+    void testConjuredItems() {
+        Item item = new Item("Conjured Headhunter", 100, 30);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        int currentQuality = item.quality;
+        for (int i = 0; i < 10; i++) {
+            gildedRose.updateQuality();
+            assertThat(item.quality).isEqualTo(currentQuality - 2);
+            currentQuality = item.quality;
+        }
+    }
+
 }

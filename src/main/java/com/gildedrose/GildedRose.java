@@ -26,7 +26,8 @@ class GildedRose {
                     gildedRoseItems.add(new BackstagePasses(item));
                     break;
                 default:
-                    gildedRoseItems.add(new GildedRoseItem(item));
+                    boolean conjured = item.name.startsWith(SpecialItemNames.CONJURED);
+                    gildedRoseItems.add(new GildedRoseItem(item, conjured));
             }
         }
     }
